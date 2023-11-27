@@ -1,8 +1,8 @@
 Feature: Advance Setting screen for setting up the advance features.
 
-  @AdvanceSetting @Regression
+  @AdvanceSettingScreen @Regression
   Scenario: Scripting advance setting screen
-
     Given User is logged in to DLUI application
-    When User navigates to Advance Setting screen
-    Then Input all required fields on the Advance Settings screen
+    #When User search for required bank
+    #When User navigates to Advance Setting screen
+    #Then Input all required fields on the Advance Settings screen

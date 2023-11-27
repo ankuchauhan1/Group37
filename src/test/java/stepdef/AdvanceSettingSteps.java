@@ -1,4 +1,4 @@
-package org.sdet.stepdef;
+package stepdef;
 
 
 import io.cucumber.java.en.Given;
@@ -12,11 +12,13 @@ public class AdvanceSettingSteps  {
     LoginApplication loginApp = new LoginApplication();
     SelectBank sb = new SelectBank();
     String searchbank = TestConfig.getConfigDetails().get("SearchBank");
+
     @Given("User is logged in to DLUI application")
     public void loginToDLApplication() {
         System.out.println("inside a func.");
         loginApp.loginToDL();
     }
+
   /*  @When ("User search for required bank")
         public void navigateToAdvanceSettingScree(){
         sb.selectBank(searchbank);
