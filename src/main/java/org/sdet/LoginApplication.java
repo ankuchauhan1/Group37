@@ -11,16 +11,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.utils.TestConfig;
-
 import java.time.Duration;
+import static org.pages.CommonPagesLocators.*;
 
 //@Test
 public class LoginApplication{
     //Creating a driver object referencing WebDriver interface
     static WebDriver driver=null;
-    //public static WebElement selectUserType = driver.findElement(By.xpath("//select[@id='roleList']"));
-    //public static WebElement btnLogin = driver.findElement(By.xpath("//button[@data-qa='login-button']"));
-    //public static WebElement txtOrgID = driver.findElement(By.xpath("//input[@placeholder='orgid']"));
 
     public LoginApplication(){
         PageFactory.initElements(driver, this);
@@ -34,6 +31,7 @@ public class LoginApplication{
         String userID=TestConfig.getConfigDetails().get("UserID");
         String firstName=TestConfig.getConfigDetails().get("FirstName");
         String lastName=TestConfig.getConfigDetails().get("LastName");
+        String SearchBank=TestConfig.getConfigDetails().get("SearchBank");
 
         //Instantiating driver object and launching browser
         driver = new ChromeDriver();
@@ -57,8 +55,9 @@ public class LoginApplication{
         //WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
         //wait.until(ExpectedConditions.presenceOfElementLocated(btnLogin));
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
-        driver.findElement(By.xpath("//input[@placeholder='orgid']")).clear();
-        driver.findElement(By.xpath("//input[@placeholder='orgid']")).sendKeys(orgID);
+
+       driver.findElement(By.xpath("//input[@placeholder='orgid']")).clear();
+       driver.findElement(By.xpath("//input[@placeholder='orgid']")).sendKeys(orgID);
 
         driver.findElement(By.xpath("//input[@placeholder='userId']")).clear();
         driver.findElement(By.xpath("//input[@placeholder='userId']")).sendKeys(userID);
@@ -74,20 +73,32 @@ public class LoginApplication{
         }
         else
             System.out.println("Login button is not displayed");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000)) ;
-
-        /*txtUserID.clear();
-        txtUserID.sendKeys(userID);
-        txtFirstName.clear();
-        txtFirstName.sendKeys(firstName);
-        txtLastName.clear();
-        txtLastName.sendKeys(lastName);*/
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
 
         String title = driver.getTitle();
-        if(title.equalsIgnoreCase("Login")){
+        if(title.equalsIgnoreCase("Deposit Line")){
             System.out.println("Title is: "+ title);
             System.out.println("Login Successful");
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000)) ;
-    }
+        else {
+            System.out.println("Title is not matching");
+        }
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000)) ;
+
+       if(driver.findElement(By.xpath("//input[@type='search']")).isDisplayed()){
+           System.out.println("Select Bank");
+           driver.findElement(By.xpath("//input[@type='search']")).clear();
+           driver.findElement(By.xpath("//input[@type='search']")).sendKeys(SearchBank);
+       }
+
+       driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
+
+       if(driver.findElement(By.xpath("//tbody/tr/td[2]")).getText().equalsIgnoreCase(SearchBank)){
+           System.out.println("Bank selected");
+           driver.findElement(By.xpath("//tbody/tr/td[2]")).click();
+       }
+
+
+   }
 }

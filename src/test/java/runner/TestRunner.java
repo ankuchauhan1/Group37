@@ -10,10 +10,11 @@ import io.cucumber.testng.CucumberOptions;
 //@RunWith(Cucumber.class)
     @CucumberOptions(features= {"src/test/FeatureFiles"},
             glue = "stepdef",
-//plugin = { "html:output", "html:target/cucumber-reports","json:target/JSON/cucumber.json"},
+
+            //plugin = { "html:output", "html:target/cucumber-reports","json:target/JSON/cucumber.json"},
             plugin={"pretty","html:target/cucumber-html-report/"},
             monochrome = true,
-            tags="@AdvanceSettingScreen")
+            tags="@CreditLineScreen")
 
    // @Test
     public class TestRunner extends AbstractTestNGCucumberTests{
