@@ -23,7 +23,7 @@ public class LoginApplication{
         PageFactory.initElements(driver, this);
     }
 
-   @Test
+    @Test
     public void loginToDL(){
         String dlUI_URL = TestConfig.getConfigDetails().get("DLUI_URL");
         String userType= TestConfig.getConfigDetails().get("UserType");
@@ -56,8 +56,8 @@ public class LoginApplication{
         //wait.until(ExpectedConditions.presenceOfElementLocated(btnLogin));
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
 
-       driver.findElement(By.xpath("//input[@placeholder='orgid']")).clear();
-       driver.findElement(By.xpath("//input[@placeholder='orgid']")).sendKeys(orgID);
+        driver.findElement(By.xpath("//input[@placeholder='orgid']")).clear();
+        driver.findElement(By.xpath("//input[@placeholder='orgid']")).sendKeys(orgID);
 
         driver.findElement(By.xpath("//input[@placeholder='userId']")).clear();
         driver.findElement(By.xpath("//input[@placeholder='userId']")).sendKeys(userID);
@@ -86,19 +86,19 @@ public class LoginApplication{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000)) ;
 
-       if(driver.findElement(By.xpath("//input[@type='search']")).isDisplayed()){
-           System.out.println("Select Bank");
-           driver.findElement(By.xpath("//input[@type='search']")).clear();
-           driver.findElement(By.xpath("//input[@type='search']")).sendKeys(SearchBank);
-       }
+        if(driver.findElement(By.xpath("//input[@type='search']")).isDisplayed()){
+            System.out.println("Select Bank");
+            driver.findElement(By.xpath("//input[@type='search']")).clear();
+            driver.findElement(By.xpath("//input[@type='search']")).sendKeys(SearchBank);
+        }
 
-       driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000)) ;
 
-       if(driver.findElement(By.xpath("//tbody/tr/td[2]")).getText().equalsIgnoreCase(SearchBank)){
-           System.out.println("Bank selected");
-           driver.findElement(By.xpath("//tbody/tr/td[2]")).click();
-       }
+        if(driver.findElement(By.xpath("//tbody/tr/td[2]")).getText().equalsIgnoreCase(SearchBank)){
+            System.out.println("Bank selected");
+            driver.findElement(By.xpath("//tbody/tr/td[2]")).click();
+        }
 
 
-   }
+    }
 }

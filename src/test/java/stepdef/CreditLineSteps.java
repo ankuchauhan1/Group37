@@ -3,15 +3,9 @@ package stepdef;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.sdet.CreditLinePage;
 import org.sdet.LoginApplication;
 
-
-import org.utils.TestConfig;
-
-import java.time.Duration;
 
 
 public class CreditLineSteps {

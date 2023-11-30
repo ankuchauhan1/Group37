@@ -8,7 +8,6 @@ public class CreditLineLocators {
     /************ Self service tool Credit Line page ************/
     @FindBy(xpath="//div[@class='dl-site-header navbar-fixed-top']/div/div[2]/ul/li[3]")
     public static WebElement tab_CreditLine ;
-
     @FindBy(xpath="//h4[@class='section-title border-botton']")
     public static WebElement label_Credit_Line_Calculation_Options ;
     @FindBy(xpath="//input[@placeholder='Enter Qualified Deposit Amount']")
@@ -48,6 +47,9 @@ public class CreditLineLocators {
     public static WebElement txt_Fraud_Transfer_Expiration_Period_Notes ;
     @FindBy(xpath="//*[@id='submit-button']")
     public static WebElement btn_Submit ;
+
+
+
 
 
 

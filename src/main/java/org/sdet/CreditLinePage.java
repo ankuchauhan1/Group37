@@ -2,23 +2,17 @@ package org.sdet;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import java.time.Duration;
 
-
-public class CreditLinePage {
-     WebDriver driver;
+public class CreditLinePage extends LoginApplication {
 
     public CreditLinePage(){
         PageFactory.initElements(driver, this);
     }
 
-
     public void moveToCreditLinePage(){
-        System.out.println("19");
 
         String header =driver.findElement(By.xpath("//ul/li[contains(text(),'Execution Process')]")).getText();
         Assert.assertEquals(header,"Execution Process");
