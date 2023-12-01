@@ -7,7 +7,6 @@ import org.sdet.CreditLinePage;
 import org.sdet.LoginApplication;
 
 
-
 public class CreditLineSteps {
     LoginApplication loginApp = new LoginApplication();
     CreditLinePage creditLine = new CreditLinePage();
@@ -19,15 +18,15 @@ public class CreditLineSteps {
     }
 
     @When("User navigates to Credit Line screen")
-    public void move_to_CreditLine_Page(){
+    public void move_to_CreditLine_Page() {
         System.out.println("Inside step 3");
         creditLine.moveToCreditLinePage();
     }
+
     @Then("Input all required fields on the Credit Line screen")
-    public void FillAllFields(){
+    public void FillAllFields() {
         creditLine.Fill_Details();
     }
-
 
 
 }
