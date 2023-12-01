@@ -28,5 +28,10 @@ public class CreditLineSteps {
         creditLine.Fill_Details();
     }
 
+    @Then("Input all required fields with incorrect data on the Credit Line screen")
+    public void FillIncorrectData(){
+        creditLine.Fill_Incorrect_Details();
+    }
+
 
 }

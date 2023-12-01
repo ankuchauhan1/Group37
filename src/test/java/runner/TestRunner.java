@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
             //plugin = { "html:output", "html:target/cucumber-reports","json:target/JSON/cucumber.json"},
             plugin={"pretty","html:target/cucumber-html-report/"},
             monochrome = true,
-            tags="@CreditLineScreen")
+            tags="@CreditLineScreenInvalidData")
 
    // @Test
     public class TestRunner extends AbstractTestNGCucumberTests{
